@@ -1,0 +1,17 @@
+.elements__like-icon {
+  width: 22px;
+  height: 19px;
+  background: url(../../../images/like.svg) center no-repeat;
+  border: none;
+  outline: none;
+}
+
+.elements__like-icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.elements__like-icon:active {
+  background: url(../../../images/like-active.svg) center no-repeat;
+  opacity: 1;
+}
