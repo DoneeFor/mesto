@@ -18,5 +18,7 @@
 4. Использование **_evt.preventDefault()_**
 5. **_addEventListener_**
 
+https://doneefor.github.io/mesto/
+
 Молюсь богу ревью, чтобы сдать все с первого раза
 [Аминь](https://pbs.twimg.com/profile_images/1031769564151930880/xO7dqoNb.jpg)
