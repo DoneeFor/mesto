@@ -23,49 +23,49 @@
       <button type="button" class="profile__add-button"></button>
     </section>
 
-    <section class="elements">
-      <figure class="elements__item">
-        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Карачаево-Черкессия</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
-      <figure class="elements__item">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
-      <figure class="elements__item">
-        <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Домбай</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
-      <figure class="elements__item">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
-      <figure class="elements__item">
-        <img src="./images/dombai.jpg" alt="Домбай" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Домбай</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
-      <figure class="elements__item">
-        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="elements__image">
-        <figcaption class="elements__description">
-          <h2 class="elements__title">Карачаево-Черкессия</h2>
-          <div class="elements__like-icon"></div>
-        </figcaption>
-      </figure>
+    <section class="cards">
+      <article class="card">
+        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Карачаево-Черкессия</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Гора Эльбрус</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Домбай</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Гора Эльбрус</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Домбай</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
+      <article class="card">
+        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
+        <div class="card__description">
+          <h2 class="card__title">Карачаево-Черкессия</h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </article>
     </section>
 
     <footer class="footer body-container">
@@ -73,21 +73,21 @@
     </footer>
   </main>
 
-  <div class="popup">
+  <article class="popup">
     <div class="popup__container">
       <button type="button" class="popup__close"></button>
       <form action="#" name="profile-edit" autocomplete="on" class="popup__form">
         <fieldset class="popup__field">
           <legend class="popup__title">Редактировать профиль</legend>
-          <input type="text" name="user-name" class="popup__input popup__input_user_name" value="Жак-Ив Кусто">
+          <input type="text" name="user-name" class="popup__input popup__input_user_name" value="">
           <input type="text" name="user-description" class="popup__input popup__input_user_occupation"
-            value="Исследователь океана">
+            value="">
           <button type="submit" class="popup__submit">Сохранить</button>
         </fieldset>
       </form>
     </div>
-  </div>
-  <script src="./scripts/script.js" defer></script>
+  </article>
+  <script src="./scripts/index.js" defer></script>
 </body>
 
 </html>
