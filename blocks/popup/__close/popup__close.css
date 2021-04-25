@@ -1,7 +1,7 @@
 .popup__close {
-  height: 40px;
-  width: 40px;
-  background: url(../../../images/Close-Icon.svg) center no-repeat;
+  height: 26px;
+  width: 26px;
+  background: url(../../../images/Close-icon.svg) center no-repeat;
   background-size: cover;
   padding: 0;
   border: 0;
@@ -9,6 +9,7 @@
   right: 5px;
   top: -43px;
   outline: none;
+  transform: rotate(45deg);
 }
 
 .popup__close:hover {
