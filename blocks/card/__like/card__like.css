@@ -4,14 +4,10 @@
   background: url(../../../images/like.svg) center no-repeat;
   border: none;
   outline: none;
+  padding: 0;
 }
 
 .card__like:hover {
   opacity: 0.5;
   cursor: pointer;
-}
-
-.card__like:active {
-  background: url(../../../images/like-active.svg) center no-repeat;
-  opacity: 1;
 }

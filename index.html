@@ -22,50 +22,7 @@
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
-
     <section class="cards">
-      <article class="card">
-        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Карачаево-Черкессия</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Домбай</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Домбай</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия" class="card__image">
-        <div class="card__description">
-          <h2 class="card__title">Карачаево-Черкессия</h2>
-          <button type="button" class="card__like"></button>
-        </div>
-      </article>
     </section>
 
     <footer class="footer body-container">
@@ -73,21 +30,60 @@
     </footer>
   </main>
 
-  <article class="popup">
-    <div class="popup__container">
+  <article class="popup popup_type_edit-profile">
+    <div class="popup__container popup__container_type_form">
       <button type="button" class="popup__close"></button>
       <form action="#" name="profile-edit" autocomplete="on" class="popup__form">
         <fieldset class="popup__field">
           <legend class="popup__title">Редактировать профиль</legend>
           <input type="text" name="user-name" class="popup__input popup__input_user_name" value="">
-          <input type="text" name="user-description" class="popup__input popup__input_user_occupation"
+          <input type="text" name="user-description" class="popup__input popup__input_user_description"
             value="">
           <button type="submit" class="popup__submit">Сохранить</button>
         </fieldset>
       </form>
     </div>
   </article>
+
+  <article class="popup popup_type_add-card">
+    <div class="popup__container popup__container_type_form">
+      <button type="button" class="popup__close"></button>
+      <form name="card-edit" autocomplete="on" class="popup__form">
+        <fieldset class="popup__field">
+          <legend class="popup__title">Новое место</legend>
+          <input type="text" name="user-name" class="popup__input popup__input_card_name" placeholder="Название" required>
+          <input type="text" name="user-description" class="popup__input popup__input_card_link"
+            placeholder="Ссылка на картинку" required>
+          <button type="submit" class="popup__submit">Создать</button>
+        </fieldset>
+      </form>
+    </div>
+  </article>
+
+  <article class="popup popup_type_image-overlay">
+    <div class="popup__container popup__container_type_image-overlay">
+      <button type="button" class="popup__close"></button>
+      <figure class="popup__figure">
+        <img src="#" alt="Место" class="popup__image">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <template id="card-template">
+    <figure class="card">
+      <img src="#" alt="Место" class="card__image">
+      <button class="card__trash"></button>
+      <figcaption class="card__description">
+        <h2 class="card__title"></h2>
+        <button type="submit" class="card__like"></button>
+      </figcaption>
+    </figure>
+  </template>
+
+
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/initialCards.js"></script>
 </body>
 
 </html>
