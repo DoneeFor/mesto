@@ -26,3 +26,13 @@
     line-height: 22px;
   }
 }
+
+.popup__submit:disabled {
+  background: #FFFFFF;
+  opacity: .2;
+  color: #000000;
+  cursor: none;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
