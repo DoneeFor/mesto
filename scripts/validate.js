@@ -12,11 +12,13 @@ const showInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 
   inputElement.classList.add(inputErrorClass);
-  errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(inputErrorActiveClass);
+  errorElement.textContent = inputElement.validationMessage;
+  console.log(errorElement.textcontent);
 }
 
 const checkInputValidity = (formElement, inputElement, config) => {
+  console.log(inputElement.validity.valid)
   if (inputElement.validity.valid) {
     hideInputError(formElement, inputElement, config);
   } else {

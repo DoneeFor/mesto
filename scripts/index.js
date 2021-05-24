@@ -2,8 +2,8 @@ const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButton: '.popup__submit',
-  inputErrorClass: '.popup__input_type_error',
-  inputErrorActiveClass: '.popup__input-error_active',
+  inputErrorClass: 'popup__input_type_error',
+  inputErrorActiveClass: 'popup__input-error_active',
 }
 
 enableValidation(config);
@@ -24,6 +24,7 @@ const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__caption');
 const cardGrid = document.querySelector('.cards');
 const cardTemplate = document.querySelector('#card-template');
+const popupList = document.querySelectorAll('.popup');
 
 function createCard(currentCard) {
   const card = cardTemplate.content.querySelector('.card').cloneNode(true);
@@ -108,17 +109,13 @@ popupCloseButtons.forEach(item => {
     })
 });
 
-popupEditProfile.addEventListener('mousedown', function (evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupEditProfile);
-  }
-})
-
-popupAddCard.addEventListener('mousedown', function (evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupAddCard);
-  }
-})
+popupList.forEach((popup) => {
+  popup.addEventListener('click', (event) => {
+    if (event.target === popup) {
+      closePopup(popup);
+    };
+  });
+});
 
 popupEditProfile.addEventListener('submit', handleProfileSubmit);
 popupAddCard.addEventListener('submit', handleNewCardSubmit);
