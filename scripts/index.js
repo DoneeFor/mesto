@@ -29,13 +29,13 @@ const cardLink = popupAddCard.querySelector('.popup__input_card_link');
 const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__caption');
 const cardGrid = document.querySelector('.cards');
-const cardTemplate = document.querySelector('#card-template');
+const elementTemplate = '#card-template';
 const popupList = document.querySelectorAll('.popup');
 const addCardFormValidator = createValidator(config, popupAddCard);
 const editProfileFormValidator = createValidator(config, popupEditProfile);
 
 function createCard(title, link) {
-  return new Card(title, link, cardTemplate, () => {
+  return new Card(title, link, elementTemplate, () => {
       openPopup(imagePopupElement);
       popupImage.src = link;
       popupCaption.textContent = title;
@@ -101,4 +101,4 @@ popupList.forEach((popup) => {
 
 popupEditProfile.addEventListener('submit', handleProfileSubmit);
 popupAddCard.addEventListener('submit', handleNewCardSubmit);
-popupCloseButtons.addEventListener('click', () => closePopup(imagePopupElement));
+
