@@ -6,6 +6,7 @@ export default class Card {
     this._elementTemplate = elementTemplate;
     this._imageClickListener = imageClickListener;
     this._element = this._createCard();
+    this._likeButton = this._element.querySelector('.card__like');
   }
 
   get element() {
@@ -20,18 +21,9 @@ export default class Card {
     return this._link;
   }
 
-  _toggleLikeButton() {
-    this._element
-      .querySelector('.card__like')
-      .classList.toggle('card__like_active');
-  }
-
-  _toggleDeleteButton() {
-    this._element.remove();
-    this._element = null;
-  }
-
   _setEventListeners() {
+    console.log(this);
+    console.log(this._likeButton);
     this._element
       .querySelector('.card__like')
       .addEventListener('click', () => {
@@ -47,6 +39,16 @@ export default class Card {
       .addEventListener('click', () => {
         this._imageClickListener();
       });
+  }
+
+  _toggleLikeButton() {
+    this._likeButton.classList.toggle('card__like_active');
+    console.log(this._likeButton);
+  }
+
+  _toggleDeleteButton() {
+    this._element.remove();
+    this._element = null;
   }
 
   _createCard() {

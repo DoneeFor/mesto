@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import {initialCards} from './initialCards.js'
-import FormValidator from './validate.js'
+import FormValidator from './FormValidator.js'
 import {
   openPopup,
   closePopup,
@@ -33,6 +33,7 @@ const elementTemplate = '#card-template';
 const popupList = document.querySelectorAll('.popup');
 const addCardFormValidator = createValidator(config, popupAddCard);
 const editProfileFormValidator = createValidator(config, popupEditProfile);
+const likeButton = document.querySelector('.card__like');
 
 function createCard(title, link) {
   return new Card(title, link, elementTemplate, () => {
@@ -50,6 +51,13 @@ function addCard(card) {
 initialCards.forEach((element) => {
   const card = createCard(element.name, element.link)
   addCard(card)
+});
+
+profileEditButton.addEventListener('click', () => {
+  openPopup(popupEditProfile);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileOcupation.textContent;
+  editProfileFormValidator.initForm()
 });
 
 function handleProfileSubmit(evt) {
@@ -73,11 +81,6 @@ function createValidator(config, popup) {
   validator.enableValidation()
   return validator
 };
-
-profileEditButton.addEventListener('click', () => {
-  openPopup(popupEditProfile);
-  editProfileFormValidator.initForm()
-});
 
 addCardButton.addEventListener('click', ()  => {
   openPopup(popupAddCard);
