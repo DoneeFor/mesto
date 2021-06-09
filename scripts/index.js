@@ -33,7 +33,7 @@ const elementTemplate = '#card-template';
 const popupList = document.querySelectorAll('.popup');
 const addCardFormValidator = createValidator(config, popupAddCard);
 const editProfileFormValidator = createValidator(config, popupEditProfile);
-const likeButton = document.querySelector('.card__like');
+
 
 function createCard(title, link) {
   return new Card(title, link, elementTemplate, () => {
@@ -53,19 +53,18 @@ initialCards.forEach((element) => {
   addCard(card)
 });
 
-profileEditButton.addEventListener('click', () => {
-  openPopup(popupEditProfile);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileOcupation.textContent;
-  editProfileFormValidator.initForm()
-});
-
 function handleProfileSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileOcupation.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
+
+profileEditButton.addEventListener('click', function () {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileOcupation.textContent;
+  openPopup(popupEditProfile);
+});
 
 function handleNewCardSubmit(evt) {
   evt.preventDefault();
