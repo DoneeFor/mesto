@@ -84,8 +84,9 @@ function createValidator(config, popup) {
 profileEditButton.addEventListener('click', () => {
   editProfileFormValidator.initForm();
   popupWithFormProfile.open();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileOcupation.textContent;
+  const data =  userInfo.getUserInfo();
+    nameInput.value = data._name;
+    jobInput.value = data._job;
 });
 
 addCardButton.addEventListener('click', ()  => {
