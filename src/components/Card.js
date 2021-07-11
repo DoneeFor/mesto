@@ -85,8 +85,10 @@ export default class Card {
     const elementTemplate = document.querySelector(this._elementTemplate).content;
     const cardElement = elementTemplate.querySelector('.card').cloneNode(true);
     const img  = cardElement.querySelector('.card__image');
+    console.log(img);
     this._element = cardElement;
-    img.src = this._link;
+    img.src = this.link;
+    console.log(img.src);
     img.alt = this._title;
     cardElement.querySelector('.card__title').textContent = this._title;
     if (!this._isCardOwnedByCurrentUser()) {
