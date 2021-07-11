@@ -28,7 +28,7 @@
 }
 
 .popup__submit:disabled {
-  background: #FFFFFF;
+  background: #fff;
   opacity: .2;
   color: #000000;
   cursor: none;

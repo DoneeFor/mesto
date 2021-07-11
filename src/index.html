@@ -10,8 +10,11 @@
     <img src="<%=require('./images/header__logo.svg')%>" alt="Логотип" class="header__logo">
   </header>
   <main class="container">
+
     <section class="profile">
-      <img src="<%=require('./images/Jacques-YvesCousteau.jpg')%>" alt="Аватарка" class="profile__avatar">
+      <div class="profile__avatar">
+        <img src="<%=require('./images/Jacques-YvesCousteau.jpg')%>" alt="Аватарка" class="profile__image">
+      </div>
       <div class="profile__info">
         <div class="profile__block">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -45,6 +48,18 @@
     </div>
   </article>
 
+  <article class="popup popup_avatar">
+    <div class="popup__container popup__content_avatar">
+      <button type="button" aria-label="Закрыть" class="button popup__close popup__close_avatar"></button>
+       <form name="form-newAvatar" class="popup__form popup__form_avatar" novalidate>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <input id="avatarLink" autocomplete="off" type="url" name="avatarLink" pattern="https?://.+" class="popup__input popup__input_avatar-link" placeholder="Ссылка на картинку" required>
+        <span id="avatarLink-error" class="popup__input-error"></span>
+        <button type="submit" class="popup__submit popup__submit_avatar">Сохранить</button>
+      </form>
+    </div>
+  </article>
+
   <article class="popup popup_type_add-card">
     <div class="popup__container popup__container_type_form">
       <button type="button" class="popup__close"></button>
@@ -71,13 +86,26 @@
     </div>
   </article>
 
+  <article class="popup popup_confirm">
+    <div class="popup__container popup__content_confirm">
+      <button type="button" aria-label="Закрыть" class="button popup__close popup__close_confirm"></button>
+      <form class="popup__form popup__form_confirm" novalidate>
+        <h3 class="popup__title">Вы уверены?</h3>
+        <button type="submit" class="popup__submit popup__submit_confirm">Да</button>
+      </form>
+    </div>
+  </article>
+
   <template id="card-template">
     <figure class="card">
       <img src="#" alt="Место" class="card__image">
       <button class="card__trash"></button>
       <figcaption class="card__description">
         <h2 class="card__title"></h2>
-        <button type="submit" class="card__like"></button>
+        <div class="card__like-place">
+          <button type="submit" class="card__like"></button>
+          <span class="card__like-count">0</span>
+        </div>
       </figcaption>
     </figure>
   </template>
