@@ -13,7 +13,7 @@
     }
   }
 
-  setUserInfo(nameInput, jobInput) {
+  setUserInfo(_userId, nameInput, jobInput, newAvatar) {
     this._name.textContent = nameInput;
     this._job.textContent = jobInput;
     this._userId = _userId;

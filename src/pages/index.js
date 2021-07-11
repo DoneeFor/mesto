@@ -2,6 +2,7 @@ import '../pages/index.css';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
+import Api from '../components/API.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
@@ -66,7 +67,7 @@ popupWithFormNewCard.setEventListeners();
 const popupWithFormProfile = new PopupWithForm('.popup_type_edit-profile', (inputVals) => {
   return api.changeUserInfo(inputVals['user-name'], inputVals['user-description'])
   .then(data => {
-    userInfo.setUserInfo(data._id, data.name, data.description, data.avatar)
+    userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
   })
 });
 popupWithFormProfile.setEventListeners();
@@ -81,7 +82,7 @@ const popupWithAvatar = new PopupWithForm('.popup_avatar', (avatarInput)  => {
   return api.updateAvatar(avatarInput.avatarLink)
   .then((data) => {
       console.log(data)
-      userInfo.setUserInfo(data._id, data.name, data.description, data.avatar)
+      userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
   });
 })
 popupWithAvatar.setEventListeners();
@@ -89,7 +90,7 @@ popupWithAvatar.setEventListeners();
 api.getUserInfo()
   .then(data => {
     console.log(data)
-    userInfo.setUserInfo(data._id, data.name, data.description, data.avatar)
+    userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
 }).then( () => {
     api.getInitialCards().then((data) => {
         data.forEach(c => {

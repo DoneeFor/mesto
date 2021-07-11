@@ -43,15 +43,15 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._likeButton
+    this._element
     .querySelector('.card__like')
     .addEventListener('click', () => {
       this._toggleLikeButton();
     });
-    const deleteBtn = this._element.querySelector('.card-trash')
+    const deleteBtn = this._element.querySelector('.card__trash')
     if (deleteBtn) {
       deleteBtn.addEventListener('click', () => {
-        this._showDeleteConfirmation();
+        this._showPopupConfirm();
       });
     }
     this._element
@@ -67,7 +67,7 @@ export default class Card {
       () => {
         popupWithSubmit.showSaving()
         this._deleteHandler()
-        .then(() => this._deleteCard())
+        .then(() => this._toggleDeleteButton())
         .catch((err) => {
           console.log(err);
         })
@@ -98,7 +98,6 @@ export default class Card {
   }
 
   _showLikes() {
-    console.log(this._cardData)
     this._element.querySelector('.card__like-count').textContent = this._cardData.likes.length;
     const likeBtn = this._element.querySelector('.card__like');
     if (this._isCardLikedByCurrentUser()) {

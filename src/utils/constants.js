@@ -3,7 +3,6 @@ export const popupCloseButtons = document.querySelectorAll('.popup__close');
 export const nameInput = popupEditProfile.querySelector('.popup__input_user_name');
 export const jobInput = popupEditProfile.querySelector('.popup__input_user_description');
 export const profileName = document.querySelector('.profile__name');
-export const profileOcupation = document.querySelector('.profile__description');
 export const popupAddCard = document.querySelector('.popup_type_add-card');
 export const imagePopupElement = document.querySelector('.popup_type_image-overlay');
 export const profileEditButton = document.querySelector('.profile__edit-button');

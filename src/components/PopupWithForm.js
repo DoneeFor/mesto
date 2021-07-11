@@ -44,6 +44,7 @@ export default class PopupWithForm extends Popup {
 
     saving() {
       this._submit.textContent = 'Сохранение';
+      console.log('saved')
       this._submit.disabled = true;
     }
 
