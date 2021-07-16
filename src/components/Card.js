@@ -16,7 +16,7 @@ export default class Card {
   }
 
   get title() {
-    return this._cardData.title;
+    return this._cardData.name;
   }
 
   get link() {
@@ -61,44 +61,6 @@ export default class Card {
     });
   }
 
-  _showPopupConfirm() {
-    const popupWithSubmit = new PopupWithSubmit(
-      '.popup_confirm',
-      () => {
-        popupWithSubmit.showSaving()
-        this._deleteHandler()
-        .then(() => this._toggleDeleteButton())
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          popupWithSubmit.close();
-          popupWithSubmit.restoreDefaultText();
-        })
-      }
-    );
-    popupWithSubmit.setEventListeners();
-    popupWithSubmit.open();
-  }
-
-  _createCard() {
-    const elementTemplate = document.querySelector(this._elementTemplate).content;
-    const cardElement = elementTemplate.querySelector('.card').cloneNode(true);
-    const img  = cardElement.querySelector('.card__image');
-    console.log(img);
-    this._element = cardElement;
-    img.src = this.link;
-    console.log(img.src);
-    img.alt = this._title;
-    cardElement.querySelector('.card__title').textContent = this._title;
-    if (!this._isCardOwnedByCurrentUser()) {
-      cardElement.querySelector('.card__trash').remove();
-    }
-    this._showLikes()
-    this._setEventListeners();
-    return cardElement
-  }
-
   _showLikes() {
     this._element.querySelector('.card__like-count').textContent = this._cardData.likes.length;
     const likeBtn = this._element.querySelector('.card__like');
@@ -118,5 +80,21 @@ export default class Card {
     return this._cardData.likes.some(l => {
       return l._id == this._currentUserId
     });
+  }
+
+  _createCard() {
+    const elementTemplate = document.querySelector(this._elementTemplate).content;
+    const cardElement = elementTemplate.querySelector('.card').cloneNode(true);
+    const img  = cardElement.querySelector('.card__image');
+    this._element = cardElement;
+    img.src = this.link;
+    img.alt = this.title;
+    cardElement.querySelector('.card__title').textContent = this.title;
+    if (!this._isCardOwnedByCurrentUser()) {
+      cardElement.querySelector('.card__trash').remove();
+    }
+    this._showLikes()
+    this._setEventListeners();
+    return cardElement
   }
 }

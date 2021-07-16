@@ -16,3 +16,5 @@ export const cardTemplate = '#card-template';
 export const popupList = document.querySelectorAll('.popup');
 export const popupAvatar = document.querySelector('.popup_avatar');
 export const profileAvatar = document.querySelector('.profile__avatar');
+export const ESCAPE_KEY = 'Escape';
+

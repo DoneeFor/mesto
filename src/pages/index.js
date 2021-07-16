@@ -69,6 +69,9 @@ const popupWithFormProfile = new PopupWithForm('.popup_type_edit-profile', (inpu
   .then(data => {
     userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
   })
+  .catch((err) => {
+    console.log(err);
+    });
 });
 popupWithFormProfile.setEventListeners();
 
@@ -83,6 +86,13 @@ const popupWithAvatar = new PopupWithForm('.popup_avatar', (avatarInput)  => {
   .then((data) => {
       console.log(data)
       userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
+      this.close()
+  .catch((err) => {
+      console.log(err);
+      })
+  .finally(() => {
+      this.rebuildButtonText();
+      });
   });
 })
 popupWithAvatar.setEventListeners();
@@ -110,16 +120,27 @@ api.getUserInfo()
         cardData,
         cardTemplate,
         () => {
-            popupWithImage.open(cardData.title, cardData.link);
+            popupWithImage.open(cardData.name, cardData.link);
         },
-        () => {
+        (card) => {
+          popupWithSubmit.open(() => {
             return api.deleteCard(cardData._id)
+            .then(() => card.deleteCard())})
+            .catch((err) => {
+              console.log(err);
+              })
         },
         () => {
             return api.like(cardData._id)
+            .catch((err) => {
+              console.log(err);
+              })
         },
         () => {
             return api.dislike(cardData._id)
+            .catch((err) => {
+              console.log(err);
+              })
         }
     );
 }
