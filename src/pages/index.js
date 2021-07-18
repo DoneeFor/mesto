@@ -5,6 +5,7 @@ import Section from '../components/Section.js';
 import Api from '../components/API.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import UserInfo from '../components/UserInfo.js';
 import {
   addCardButton,
@@ -56,18 +57,27 @@ const cardList = new Section(
 const popupWithImage = new PopupWithImage('.popup_type_image-overlay');
 popupWithImage.setEventListeners();
 
+const popupWithSubmit = new PopupWithSubmit('.popup_confirm');
+popupWithSubmit.setEventListeners();
+
 const popupWithFormNewCard = new PopupWithForm('.popup_type_add-card', (inputVals) => {
-  return api.postNewCard(inputVals['card-title'], inputVals['card-link']).then(data => {
+  api.postNewCard(inputVals['card-title'], inputVals['card-link'])
+  .then(data => {
     const card = createCard(data);
     cardList.addItem(card.element);
+    popupWithFormNewCard.close();
+  })
+  .catch((err) => {
+    console.log(err);
   });
 });
 popupWithFormNewCard.setEventListeners();
 
 const popupWithFormProfile = new PopupWithForm('.popup_type_edit-profile', (inputVals) => {
-  return api.changeUserInfo(inputVals['user-name'], inputVals['user-description'])
+  api.changeUserInfo(inputVals['user-name'], inputVals['user-description'])
   .then(data => {
-    userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
+    userInfo.setUserInfo(data._id, data.name, data.about, data.avatar);
+    popupWithFormProfile.close();
   })
   .catch((err) => {
     console.log(err);
@@ -82,11 +92,11 @@ const userInfo = new UserInfo ({
 });
 
 const popupWithAvatar = new PopupWithForm('.popup_avatar', (avatarInput)  => {
-  return api.updateAvatar(avatarInput.avatarLink)
+  api.updateAvatar(avatarInput.avatarLink)
   .then((data) => {
       console.log(data)
       userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
-      this.close()
+      popupWithAvatar.close()
   .catch((err) => {
       console.log(err);
       })
@@ -103,7 +113,7 @@ api.getUserInfo()
     userInfo.setUserInfo(data._id, data.name, data.about, data.avatar)
 }).then( () => {
     api.getInitialCards().then((data) => {
-        data.forEach(c => {
+        data.reverse().forEach(c => {
             const card = createCard(c);
             cardList.addItem(card.element);
         })
@@ -124,11 +134,11 @@ api.getUserInfo()
         },
         (card) => {
           popupWithSubmit.open(() => {
-            return api.deleteCard(cardData._id)
-            .then(() => card.deleteCard())})
+             api.deleteCard(cardData._id)
+            .then(() => card.deleteCard())
             .catch((err) => {
               console.log(err);
-              })
+              })})
         },
         () => {
             return api.like(cardData._id)

@@ -1,11 +1,10 @@
 import Popup from '../components/Popup.js'
 
 export default class PopupWithSubmit extends Popup {
-    constructor(popupSelector, handleSubmitForm) {
+    constructor(popupSelector) {
         super(popupSelector);
         this._form = this._popupSelector.querySelector('.popup__form');
-        this._handleSubmitForm = handleSubmitForm;
-        this._btnSubmit = this._popupSelector.querySelector('.popup__button-submit');
+        this._btnSubmit = this._popupSelector.querySelector('.popup__submit');
         this._btnTextDefault = this._btnSubmit.textContent;
     }
 
@@ -18,12 +17,19 @@ export default class PopupWithSubmit extends Popup {
         });
     }
 
-    showSaving() {
+    open() {
+      super.open();
+      this._handleSubmitForm = () => {
+          this._showSaving();
+      }
+  }
+
+    _showSaving() {
         this._btnSubmit.textContent = 'Удаление...';
         this._btnSubmit.disabled = true;
     }
 
-    restoreDefaultText() {
+    _restoreDefaultText() {
         this._btnSubmit.textContent = this._btnTextDefault;
         this._btnSubmit.disabled = false;
     }
