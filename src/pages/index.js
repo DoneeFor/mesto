@@ -29,9 +29,9 @@ const config = {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-26',
   headers: {
-    "authorization": '5a7352ec-99bd-4773-b9d9-e2ab00fb6a8e',
+    "authorization": '46e8784b-6100-4cb8-864a-061229038de1',
     "content-type": 'application/json',
   },
 });
