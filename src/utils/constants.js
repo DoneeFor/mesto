@@ -1,20 +1,31 @@
-export const popupEditProfile = document.querySelector('.popup_type_edit-profile');
-export const popupCloseButtons = document.querySelectorAll('.popup__close');
-export const nameInput = popupEditProfile.querySelector('.popup__input_user_name');
-export const jobInput = popupEditProfile.querySelector('.popup__input_user_description');
-export const profileName = document.querySelector('.profile__name');
-export const popupAddCard = document.querySelector('.popup_type_add-card');
-export const imagePopupElement = document.querySelector('.popup_type_image-overlay');
+export const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+}
+export const popupAddButton = document.querySelector('.profile__add-button');
 export const profileEditButton = document.querySelector('.profile__edit-button');
-export const addCardButton = document.querySelector('.profile__add-button');
-export const cardName = popupAddCard.querySelector('.popup__input_card_name');
-export const cardLink = popupAddCard.querySelector('.popup__input_card_link');
-export const popupImage = document.querySelector('.popup__image');
-export const popupCaption = document.querySelector('.popup__caption');
+export const popupEditAvatarButton = document.querySelector('.profile__avatar');
+export const popupEditAvatar = document.querySelector('.popup_avatar');
+export const closeEditAvatarButton = document.querySelector('#closeAvatarPopup');
+export const formElementEditAvatar = document.querySelector('.popup__form_avatar');
+export const popupEdit = document.querySelector('#popupEdit');
+export const closeEditButton = document.querySelector('#closeEditPopup');
+export const formElementEdit = document.querySelector('#edit-profile');
+export const nameInput = document.querySelector('#name');
+export const jobInput = document.querySelector('#occupation');
+export const profileName = document.querySelector('.profile__name');
+export const profileDescription = document.querySelector('.profile__description');
+export const closeAddButton = document.querySelector('#closeAddPopup');
+export const popupAdd = document.querySelector('.popup_type_add-card');
+export const formElementAdd = document.querySelector('#add-card');
+export const imgInput = document.querySelector('#card-link');
+export const popupImage = document.querySelector('.popup_type_image-overlay');
+export const popupDelete = document.querySelector('#popupDelete');
+export const closeDeletePopup = document.querySelector('#closeDeletePopup');
 export const cardGrid = document.querySelector('.cards');
-export const cardTemplate = '#card-template';
-export const popupList = document.querySelectorAll('.popup');
-export const popupAvatar = document.querySelector('.popup_avatar');
-export const profileAvatar = document.querySelector('.profile__avatar');
+export const popup = document.querySelector('.popup');
 export const ESCAPE_KEY = 'Escape';
-

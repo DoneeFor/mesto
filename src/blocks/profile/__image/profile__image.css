@@ -13,5 +13,5 @@
 
 .profile__image:hover {
   cursor: pointer;
-  opacity: .2;
+  opacity: .5;
 }
