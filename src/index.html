@@ -37,11 +37,9 @@
       <button type="button" class="popup__close" id="closeEditPopup"></button>
       <legend class="popup__title">Редактировать профиль</legend>
       <form name="popup-form-edit" class="popup__form" id="edit-profile" novalidate>
-        <input id="name" class="popup__input" type="text" name="username" placeholder="Ваше имя" value="" minlength="2"
-          maxlength="40" required>
+        <input id="name" class="popup__input" type="text" name="username" placeholder="Ваше имя" value="" minlength="2" maxlength="40" required>
         <span class="popup__input-error" id="name-error"></span>
-        <input id="occupation" class="popup__input" type="text" name="occupation" placeholder="Род деятельности"
-          value="" minlength="2" maxlength="200" required>
+        <input id="occupation" class="popup__input" type="text" name="occupation" placeholder="Род деятельности" value="" minlength="2" maxlength="200" required>
         <span class="popup__input-error" id="occupation-error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
@@ -54,22 +52,22 @@
        <form name="form-newAvatar" class="popup__form popup__form_avatar" novalidate>
         <h3 class="popup__title">Обновить аватар</h3>
         <input id="avatarLink" class="popup__input" type="url" name="av_link" placeholder="Ссылка на фото" value="" minlength="2" required>
-        <span class="popup__input-error" id="av_link-error"></span>
+        <span class="popup__input-error" id="avatarLink-error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
     </div>
   </article>
 
   <article class="popup popup_type_add-card">
-    <div class="popup__container popup__container_type_form">
+    <div class="popup__container">
       <button type="button" class="popup__close"  id='closeAddPopup'></button>
       <form name="popup-form-add" autocomplete="on" class="popup__form" id='add-card' novalidate>
         <fieldset class="popup__field">
           <legend class="popup__title">Новое место</legend>
-          <input type="text" name="user-name" id="card-title" class="popup__input" placeholder="Название" minlength="2" maxlength="30" required>
-          <span class="popup__input-error" id="card-title-error"></span>
-          <input type="url" name="user-description" id="card-link" class="popup__input" placeholder="Ссылка на картинку" required>
-          <span class="popup__input-error" id="card-link-error"></span>
+          <input id="placename" class="popup__input" type="text" name="placename" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="popup__input-error" id="placename-error"></span>
+          <input id="link" class="popup__input" type="url" name="link" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error" id="link-error"></span>
           <button type="submit" class="popup__submit">Создать</button>
         </fieldset>
       </form>
@@ -77,16 +75,14 @@
   </article>
 
   <article class="popup popup_type_image-overlay">
-    <div class="popup__container popup__container_type_image-overlay">
       <figure class="popup__figure">
-        <button type="button" class="popup__close" id='closeImagePopup'></button>
+        <button type="button" class="popup__close"></button>
         <img src="#" alt="Место" class="popup__image">
         <figcaption class="popup__caption"></figcaption>
       </figure>
-    </div>
   </article>
 
-  <article class="popup popup_confirm">
+  <article class="popup" id="popupDelete">
     <div class="popup__container">
       <button type="button" class="popup__close" id="closeDeletePopup"></button>
       <h3 class="popup__title">Вы уверены?</h3>

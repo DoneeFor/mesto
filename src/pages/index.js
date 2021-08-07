@@ -68,12 +68,12 @@ function createCard(cardName, cardLink, likes, cardId, owner) {
     },
 
     handleDeleteClick: (id) => {
-      popupWithSubmit.openPopup();
-      popupWithSubmit.setConfirmHandler(() => {
+      popupDelete.openPopup();
+      popupDelete.setConfirmHandler(() => {
         api.deleteCard(id)
           .then(() => {
             card.deleteButtonClick();
-            popupWithSubmit.closePopup();
+            popupDelete.closePopup();
           })
           .catch(err => {
             console.log(`ошибка ${err}`)
@@ -150,9 +150,9 @@ const popupEditAvatar = new PopupWithForm({
   popupSelector: '.popup_avatar',
   submitForm: (inputValue) => {
 
-    api.updateAvatar(inputValue.av_link)
+    api.updateAvatar(inputValue.avatarLink)
       .then(() => {
-        userInfo.setUserAvatar(inputValue.av_link);
+        userInfo.setUserAvatar(inputValue.avatarLink);
         popupEditAvatar.closePopup();
       })
       .catch((err) => {
@@ -174,8 +174,8 @@ popupEditAvatarButton.addEventListener('click', function () {
 const popupPhoto = new PopupWithImage('.popup_type_image-overlay');
 popupPhoto.setEventListeners();
 
-const popupWithSubmit = new PopupWithSubmit('.popup__confirm');
-popupWithSubmit.setEventListeners();
+const popupDelete = new PopupWithSubmit('#popupDelete');
+popupDelete.setEventListeners();
 
 const formEditValidator = new FormValidator(config, formElementEdit);
 formEditValidator.enableValidation();
