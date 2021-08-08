@@ -10,29 +10,29 @@ export default class Popup {
   setEventListeners() {
     this._popup.querySelector('.popup__close')
       .addEventListener('click', () => {
-        this.closePopup();
+        this.close();
       });
   }
 
   _closeByOverlay = (evt) => {
     if (evt.target.classList.contains('popup')) {
-      this.closePopup();
+      this.close();
     }
   }
 
   _closeByEsc = (evt) => {
     if (evt.key === ESCAPE_KEY) {
-      this.closePopup();
+      this.close();
     }
   }
 
-  closePopup() {
+  close() {
     document.removeEventListener('keydown', this._closeByEsc);
     this._popup.removeEventListener('mousedown', this._closeByOverlay);
     this._popup.classList.remove('popup_opened');
   }
 
-  openPopup() {
+  open() {
     this._popup.classList.add('popup_opened');
     document.addEventListener('keydown', this._closeByEsc)
     this._popup.addEventListener('mousedown', this._closeByOverlay)
