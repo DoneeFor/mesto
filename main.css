@@ -910,8 +910,9 @@ template {
 .popup__image {
   max-width: 75vw;
   max-height: 75vh;
-  display: block;
+  background-size: cover;
 }
+
 .popup__field {
   border: 0;
   padding: 0;
@@ -972,9 +973,13 @@ template {
   color: #fff;
 }
 .popup__figure {
-  margin: 0;
-  padding: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
+
 .popup__add {
     display: none;
     font-family: 'Inter', Arial, sans-serif;
